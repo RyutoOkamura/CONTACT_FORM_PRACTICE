@@ -29,30 +29,48 @@
 <body>
   <div class="container">
     <h1 class="title">お問い合わせ</h1>
+    <div class="explanation-wrapper">
+      <p class="explanation">以下のフォームに必要事項をご記入の上、「確認画面へ」をクリックしてください。</p>
+    </div>
     <form action="/confirm" method="post">
       @csrf
       <div class="name-input">
         <p class="form-label">お名前 (10文字以内) <span class="badge-danger">必須</span></p>
-        <input type="text" name="name">
+        <input type="text" name="name" value="{{ old('name') }}" class="input">
       </div>
+      @error('name')
+        <p class="error-message">{{$message}}</p>
+      @enderror
       <div class="email-input">
         <p class="form-label">メールアドレス<span class="badge-danger">必須</span></p>
-        <input type="text" name="email">
+        <input type="email" name="email" value="{{ old('email') }}" class="input">
       </div>
+      @error('email')
+        <p class="error-message">{{$message}}</p>
+      @enderror
       <div class="tel-input">
         <p class="form-label">電話番号</p>
-        <input type="text" name="tel">
+        <input type="tel" name="tel" value="{{ old('tel') }}" class="input">
       </div>
+      @error('tel')
+        <p class="error-message">{{$message}}</p>
+      @enderror
       <div class="gender-input">
         <p class="form-label">性別<span class="badge-danger">必須</span></p>
-        <input type="radio" name="gender" value="男性">男性
-        <input type="radio" name="gender" value="女性">女性
+        <input type="radio" name="gender" value="男性" {{ old('gender') == '男性' ? 'checked' : '' }} class="radio-input">男性
+        <input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }} class="radio-input">女性
       </div>
-      <div class="contrnts-input">
-        <p class="form-label">お問い合わせ内容<span class="badge-danger">必須</span></p>
-        <textarea name="contents" cols="30" rows="10"></textarea>
+      @error('gender')
+        <p class="error-message">{{$message}}</p>
+      @enderror
+      <div class="contents-input">
+        <p class="form-label">お問い合わせ内容<span class="badge-danger">必須</span></p> 
+        <textarea name="contents" cols="30" rows="10" class="input">{{ old('contents') }}</textarea>
       </div>
-      <button type="submit">確認画面へ</button>
+      @error('contents')
+        <p class="error-message">{{$message}}</p>
+      @enderror
+      <button type="submit" class="submit-btn">確認画面へ</button>
     </form>
   </div>
 </body>

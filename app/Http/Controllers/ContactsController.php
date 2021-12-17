@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Http\Requests\UserRequest;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -15,9 +15,8 @@ class ContactsController extends Controller
         return view('contacts');
     }
 
-    public function confirm(Request $request)
+    public function confirm(UserRequest $request)
     {
-        $this->validate($request, Contact::$rules);
         $inputs = $request->all();
         return view('confirm', ['inputs' => $inputs]);
     }
@@ -35,7 +34,7 @@ class ContactsController extends Controller
             $contact->save();
 
             // メール送信
-            Mail::to($input['email'])->send(new ContactMail('mails.contact', 'お問い合わせありがとうございます', $input));
+            Mail::to($input['email'])->send(new ContactMail('mails.contact', 'お問い合わせありがとうございます。', $input));
 
             return redirect()->route('complete');
         } else {

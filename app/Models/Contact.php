@@ -11,11 +11,4 @@ class Contact extends Model
 
     protected $guarded = ['id'];
 
-    public static $rules = array(
-        'name'     => 'required|max:10',
-        'email'    => 'required|email',
-        'tel'      => 'nullable|numeric',
-        'gender'   => 'required',
-        'contents' => 'required'
-    );
 }

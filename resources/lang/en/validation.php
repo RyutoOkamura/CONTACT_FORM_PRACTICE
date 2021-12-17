@@ -155,6 +155,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'     => 'お名前',
+        'email'    => 'メールアドレス',
+        'tel'      => '電話番号',
+        'gender'   => '性別',
+        'contents' => 'お問い合わせ内容',
+    ],
 
 ];

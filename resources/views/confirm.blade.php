@@ -22,12 +22,15 @@
 <title>Contact</title>
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link rel="stylesheet"  href="css/style.css">
+<link rel="stylesheet"  href="css/confirm.css">
 </head>
 
 <body>
   <div class="container">
-    <h1 class="title">お問い合わせ</h1>
+    <h1 class="title">お問い合わせ内容の確認</h1>
+    <div class="explanation-wrapper">
+      <p class="explanation">入力内容をご確認の上、宜しければ「送信」をクリックしてください。</p>
+    </div>
     <form action="/process" method="post">
       @csrf
       <div class="name-input">
@@ -58,7 +61,7 @@
         </div>
         <input type="hidden" name="gender" value="{{ $inputs['gender'] }}">
       </div>
-      <div class="contrnts-input">
+      <div class="contents-input">
         <p class="form-label">お問い合わせ内容<span class="badge-danger">必須</span></p>
         <div class="confirm-contents">
           {{ $inputs['contents'] }}
@@ -66,9 +69,8 @@
         <input type="hidden" name="contents" value="{{ $inputs['contents'] }}">
       </div>
       <div class="btn-wrapper">
-      </div>
-        <button name="action" type="submit" value="return" >入力画面に戻る</button>
-        <button name="action" type="submit" value="submit" >送信</button>
+        <button name="action" type="submit" value="return" class="submit-btn">入力画面に戻る</button>
+        <button name="action" type="submit" value="submit" class="submit-btn">送信</button>
       </div>
     </form>
   </div>

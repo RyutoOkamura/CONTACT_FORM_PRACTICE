@@ -1,0 +1,67 @@
+.title {
+    text-align: center;
+}
+
+.name-input,
+.email-input,
+.tel-input,
+.gender-input,
+.contents-input {
+    display: flex;
+    justify-content: left;
+    padding: 10px 10px;
+}
+
+.radio-input {
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    position: relative;
+}
+
+.form-label {
+    width: 25%;
+    font-weight: bold;
+}
+
+.input {
+    width: 75%;
+    border-radius: 10px;
+    border: 2px solid #999;
+}
+
+.badge-danger {
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.submit-btn {
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 102, 255);
+    background-color: rgb(0, 102, 255);
+    padding: 10px 45px;
+    color: white;
+}
+
+.submit-btn:hover {
+    border: 2px solid rgb(0, 102, 255);
+    background-color: white;
+    color: rgb(0, 102, 255);
+    transition: 0.5s;
+}
+
+.error-message {
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.55);
+    border-radius: 5px;
+    padding: 5px 0px;
+    color: black;
+}
+
+.explanation-wrapper {
+    padding: 20px 0px;
+}
